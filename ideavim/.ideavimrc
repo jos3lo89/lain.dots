@@ -1,0 +1,24 @@
+let mapleader = " "
+set number
+set relativenumber
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set visualbell
+set noerrorbells
+set clipboard+=unnamed
+set scrolloff=5
+set highlightedyank
+set easymotion
+set notimeout
+
+vnoremap < <gv
+vnoremap > >gv
+
+map <leader>ff <action>(GotoFile)
+map <leader>q <action>(CloseContent)
+map <leader>fc <action>(FindInPath)
+
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
