@@ -4,7 +4,7 @@ return {
 	event = "VeryLazy",
 	opts = {
 		options = {
-			disabled_filetypes = { "neo-tree", "alpha" },
+			disabled_filetypes = { "neo-tree", "alpha", "snacks_dashboard" },
 		},
 		icons_enabled = true,
 		theme = "auto",
