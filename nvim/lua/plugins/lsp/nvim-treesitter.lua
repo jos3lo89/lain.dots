@@ -7,17 +7,19 @@ return {
 	opts = {},
 	config = function()
 		require("nvim-treesitter.configs").setup({
-			sync_install = false,
+			sync_install = true,
 			ignore_install = {},
 			modules = {},
-			auto_install = false,
+			auto_install = true,
 			ensure_installed = {
 				"vim",
 				"vimdoc",
 				"yaml",
 				"query",
 				"jsdoc",
+				"prisma",
 				"json",
+				"dockerfile",
 				"jsonc",
 				"lua",
 				"luadoc",

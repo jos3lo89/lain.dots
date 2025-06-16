@@ -45,3 +45,14 @@ keymap.set("n", "<leader>nl", "<cmd>NoiceLast<cr>", { desc = "Noice Last Message
 keymap.set("n", "<leader>nh", "<cmd>NoiceHistory<cr>", { desc = "Noice Message History" })
 keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "Noice Dismiss All" })
 keymap.set("n", "<leader>ne", "<cmd>NoiceErrors<cr>", { desc = "Noice Show Errors" })
+
+keymap.set("n", "<C-e>", "<END>", { nowait = true, silent = true })
+keymap.set("n", "<C-b>", "<HOME>", { nowait = true, silent = true })
+
+-- insert
+keymap.set("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
+keymap.set("i", "<C-e>", "<End>", { desc = "move end of line" })
+keymap.set("i", "<C-h>", "<Left>", { desc = "Move left", silent = true, nowait = true })
+keymap.set("i", "<C-j>", "<Down>", { desc = "Move down", silent = true, nowait = true })
+keymap.set("i", "<C-k>", "<Up>", { desc = "Move up", silent = true, nowait = true })
+keymap.set("i", "<C-l>", "<Right>", { desc = "Move right", silent = true, nowait = true })

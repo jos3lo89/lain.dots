@@ -14,26 +14,46 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 
 	callback = function(event)
-		local map = function(keys, func, desc)
-			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-		end
+		vim.keymap.set("n", "grn", vim.lsp.buf.rename, { buffer = event.buf, desc = "LSP: Rename" })
+		vim.keymap.set("n", "grr", vim.lsp.buf.references, { buffer = event.buf, desc = "LSP: references" })
+		vim.keymap.set("n", "gri", vim.lsp.buf.implementation, { buffer = event.buf, desc = "LSP: implementation" })
+		-- vim.keymap.set("n", "grd", vim.lsp.buf.declaration, { buffer = event.buf, desc = "LSP: declaration" })
+		-- vim.keymap.set("n", "grs", vim.lsp.buf.signature_help, { buffer = event.buf, desc = "LSP: signature_help" })
+		vim.keymap.set("n", "grh", vim.lsp.buf.hover, { buffer = event.buf, desc = "LSP: hover" })
+		vim.keymap.set("n", "grd", vim.lsp.buf.definition, { buffer = event.buf, desc = "LSP: definition" })
+		vim.keymap.set(
+			"n",
+			"gr|",
+			"<cmd>vsplit | lua vim.lsp.buf.definition()<cr>",
+			{ buffer = event.buf, desc = "LSP: definition split" }
+		)
+
+		vim.keymap.set(
+			"n",
+			"gr-",
+			"<cmd>split | lua vim.lsp.buf.definition()<cr>",
+			{ buffer = event.buf, desc = "LSP: definition split" }
+		)
+		-- local map = function(keys, func, desc)
+		-- 	vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+		-- end
 
 		-- defaults:
 		-- https://neovim.io/doc/user/news-0.11.html#_defaults
 
-		map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
-		map("K", vim.lsp.buf.hover, "Hover Documentation")
-		map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
-		map("gD", vim.lsp.buf.declaration, "Goto Declaration")
-		-- map("<leader>la", vim.lsp.buf.code_action, "Code Action")
-		map("ga", vim.lsp.buf.code_action, "Code Action")
-		-- map("<leader>lr", vim.lsp.buf.rename, "Rename all references")
-		map("gr", vim.lsp.buf.rename, "Rename all references")
-		-- map("<leader>lf", vim.lsp.buf.format, "Format")
-		map("gf", vim.lsp.buf.format, "Format")
-		-- map("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
-		map("gv", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
-
+		-- map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
+		-- map("K", vim.lsp.buf.hover, "Hover Documentation")
+		-- map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
+		-- map("gD", vim.lsp.buf.declaration, "Goto Declaration")
+		-- -- map("<leader>la", vim.lsp.buf.code_action, "Code Action")
+		-- map("ga", vim.lsp.buf.code_action, "Code Action")
+		-- -- map("<leader>lr", vim.lsp.buf.rename, "Rename all references")
+		-- map("gr", vim.lsp.buf.rename, "Rename all references")
+		-- -- map("<leader>lf", vim.lsp.buf.format, "Format")
+		-- map("gf", vim.lsp.buf.format, "Format")
+		-- -- map("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
+		-- map("gv", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
+		--
 		local function client_supports_method(client, method, bufnr)
 			if vim.fn.has("nvim-0.11") == 1 then
 				return client:supports_method(method, bufnr)

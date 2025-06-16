@@ -2,6 +2,11 @@ vim.lsp.enable("gopls")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("jsonls")
+vim.lsp.enable("prismals")
+vim.lsp.enable("dockerls")
+vim.lsp.enable("docker_compose_language_service")
+vim.lsp.enable("yamlls")
+vim.lsp.enable("emmet-language-server")
 
 vim.diagnostic.config({
 	virtual_lines = true,

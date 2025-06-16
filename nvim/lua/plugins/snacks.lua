@@ -23,6 +23,20 @@ return {
 		notifier = {
 			enabled = false,
 			timeout = 3000,
+			width = { min = 40, max = 0.4 },
+			height = { min = 1, max = 0.6 },
+			margin = { top = 0, right = 1, bottom = 0 },
+			padding = true, -- add 1 cell of left/right padding to the notification window
+			sort = { "level", "added" }, -- sort by level and time
+			level = vim.log.levels.TRACE,
+			icons = {
+				error = " ",
+				warn = " ",
+				info = " ",
+				debug = " ",
+				trace = " ",
+			},
+			border = "rounded",
 		},
 		picker = {
 			enabled = true,
@@ -34,9 +48,48 @@ return {
 		},
 		quickfile = { enabled = false },
 		scope = { enabled = false },
-		scroll = { enabled = false },
+		scroll = {
+			enabled = false,
+			animate = {
+				duration = { step = 15, total = 250 },
+				easing = "linear",
+			},
+			-- faster animation when repeating scroll after delay
+			animate_repeat = {
+				delay = 100, -- delay in ms before using the repeat animation
+				duration = { step = 5, total = 50 },
+				easing = "linear",
+			},
+			-- what buffers to animate
+			filter = function(buf)
+				return vim.g.snacks_scroll ~= false
+					and vim.b[buf].snacks_scroll ~= false
+					and vim.bo[buf].buftype ~= "terminal"
+			end,
+		},
 		statuscolumn = { enabled = false },
 		words = { enabled = false },
+		image = {
+			enabled = false,
+			terminal = "wezterm",
+			formats = {
+				"png",
+				"jpg",
+				"jpeg",
+				"gif",
+				"bmp",
+				"webp",
+				"tiff",
+				"heic",
+				"avif",
+				"mp4",
+				"mov",
+				"avi",
+				"mkv",
+				"webm",
+				"pdf",
+			},
+		},
 	},
 	keys = {
 		-- Top Pickers & Explorer
