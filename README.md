@@ -95,7 +95,11 @@ echo 'alias  l="eza -lh  --icons=auto"' >> ~/.zshrc
 echo 'alias ls="eza -1   --icons=auto"' >> ~/.zshrc 
 echo 'alias ll="eza -lha --icons=auto --sort=name --group-directories-first"' >> ~/.zshrc 
 echo 'alias ld="eza -lhD --icons=auto"' >> ~/.zshrc 
-echo 'alias lt="eza --icons=auto --tree"' >> ~/.zshrc 
+echo 'alias lt="eza --icons=auto --tree"' >> ~/.zshrc
+
+brew install neovim
+
+brew install fastfetch
 
 source ~/.zshrc
 # neovim
