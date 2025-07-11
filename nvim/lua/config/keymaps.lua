@@ -3,7 +3,13 @@ local keymap = vim.keymap
 keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 --- Guardar y Salir
-keymap.set("n", "<Leader>w", ":w<CR>", { desc = "Guardar archivo", noremap = true, silent = true })
+-- keymap.set("n", "<Leader>w", ":w<CR>", { desc = "Guardar archivo", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>w", function()
+	print("Guardando archivo...")
+	vim.cmd.w()
+	print("¡Guardado!")
+end, { desc = "Guardar cambios", noremap = true, silent = true })
+
 keymap.set("n", "<Leader>q", ":q<CR>", { desc = "Cerrar archivo", noremap = true, silent = true })
 
 --- Mejor Indentación en Modo Visual

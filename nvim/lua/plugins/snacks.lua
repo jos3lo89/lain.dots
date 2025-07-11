@@ -1,3 +1,4 @@
+local utils = require("utils.utils")
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -8,13 +9,7 @@ return {
 		dashboard = {
 			enabled = true,
 			preset = {
-				header = [[
-███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
-██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+				header = utils.logo,
 			},
 		},
 		explorer = { enabled = true },
@@ -26,8 +21,8 @@ return {
 			width = { min = 40, max = 0.4 },
 			height = { min = 1, max = 0.6 },
 			margin = { top = 0, right = 1, bottom = 0 },
-			padding = true, -- add 1 cell of left/right padding to the notification window
-			sort = { "level", "added" }, -- sort by level and time
+			padding = true,
+			sort = { "level", "added" },
 			level = vim.log.levels.TRACE,
 			icons = {
 				error = " ",
@@ -44,6 +39,8 @@ return {
 				".git",
 				"dist",
 				"node_modules",
+				"generated",
+				"migrations",
 			},
 		},
 		quickfile = { enabled = false },
