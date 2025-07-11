@@ -54,4 +54,4 @@ require("lazy").setup({
   },
 })
 
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("gentleman-kanagawa-blur")

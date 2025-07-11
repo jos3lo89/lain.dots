@@ -19,7 +19,14 @@ keymap.set("n", "<C-b>", "<HOME>", { nowait = true, silent = true })
 keymap.set("v", "<", "<gv", { desc = "Reducir indentación", noremap = true, silent = true })
 keymap.set("v", ">", ">gv", { desc = "Aumentar indentación", noremap = true, silent = true })
 
-keymap.set("n", "<Leader>w", ":w<CR>", { desc = "Guardar archivo", noremap = true, silent = true })
+-- keymap.set("n", "<Leader>w", ":w<CR>", { desc = "Guardar archivo", noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>w", function()
+  print("Guardando archivo...")
+  vim.cmd.w()
+  print("¡Guardado!")
+end, { desc = "Guardar cambios", noremap = true, silent = true })
+
 keymap.set("n", "<Leader>q", ":q<CR>", { desc = "Cerrar archivo", noremap = true, silent = true })
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Mover línea abajo", noremap = true, silent = true })
