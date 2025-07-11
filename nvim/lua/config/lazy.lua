@@ -29,4 +29,4 @@ require("lazy").setup({
 	checker = { enabled = true },
 })
 
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("gentleman-kanagawa-blur")
